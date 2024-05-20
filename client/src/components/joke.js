@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function Joke() {
+const Joke = ({ display }) => {
+
     const [twopart,setTwopart] = useState(false);
 
     const [joke, setJoke] = useState('');
@@ -26,14 +27,14 @@ export default function Joke() {
                     
                 }
             }
-        } 
+        };
 
        getJoke();
     }, []);
 
 
     return (
-        <div>
+        <div id='JOKE' className={`card ${display ? ('transition-joke') : ('hidden') }`}>
             {twopart ? (
                 <div>
                     <p>{setup}</p>
@@ -47,3 +48,5 @@ export default function Joke() {
         </div>
     );
 }
+
+export default Joke;
