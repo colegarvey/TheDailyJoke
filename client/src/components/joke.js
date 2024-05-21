@@ -34,14 +34,22 @@ const Joke = ({ display }) => {
 
 
     return (
-        <div id='JOKE' className={`card ${display ? ('transition-joke') : ('hidden') }`}>
+        <div id='JOKE' className={`${display ? ('transition-joke') : ('hidden') }`}>
             {twopart ? (
-                <div>
-                    <p>{setup}</p>
-                    <p>{delivery}</p>
+                <div className='card'>
+
+                    <div className='card-inner'>
+                        <div className='card-front'>
+                            <p>{setup}</p>
+                        </div>
+                        <div className='card-back'>
+                            <p>{delivery}</p>
+                        </div>
+                    </div>
+                    
                 </div>
                 ) : (
-                <div>
+                <div className='card'>
                     <p>{joke}</p>
                 </div>
                 )}
